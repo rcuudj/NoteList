@@ -8,18 +8,17 @@ const App = () => {
   const [showModal, setShowModal] = useState(false);
   //Все заметки
   const [notes, setNotes] = useState([
-    {
-      id: "1",
-      title: "Заголовок",
-      descr: "Заметка",
-      date: "28.02.2026",
-    },
+    // {
+    //   id: "1",
+    //   title: "Заголовок",
+    //   descr: "Заметка",
+    //   date: "28.02.2026",
+    // },
   ]); // Пустой массив по умолчанию
   // Получение данных с инпута
   const [noteTitle, setNoteTitile] = useState("");
   const [noteDescr, setNoteDescr] = useState("");
   const [editMode, setEditMode] = useState();
-  const [removeMode, setRemoveMode] = useState();
   const [editNotedId, setEditNotedId] = useState("");
   const showEditModeDialog = (id) => {
     setShowModal(true);
@@ -34,16 +33,18 @@ const App = () => {
       id: uuidv4(),
       title: noteTitle,
       descr: noteDescr,
+      // date: new Date().toLocaleDateString('ru-RU'), // выводит только месяц число и год
       date: Date(),
     };
     setNotes([...notes, note]);
     closeModal();
   };
   const loadNote = () => { };
-  const removeNote = (id) => { 
-
+  const removeNote = (id) => {
+    const remove = setNotes(notes.filter(note => note.id !== id)) // отфильтровать по айди, чтобы удалить если айди не совпадает
+    console.log(id)
   };
-  const editNote = (id) => {
+  const editNote = () => {
     if (editNotedId) {
       const index = notes.findIndex((note) => note.id === editNotedId);
       console.log(index);

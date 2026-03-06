@@ -3,7 +3,7 @@ import './NoteList.css';
 import NoteListOptions from "./NoteListOptions";
 import { useState } from "react";
 
-const NoteList = ({ showEditModeDialog, notes, }) => {
+const NoteList = ({ showEditModeDialog, notes, removeNote}) => {
 
     const [isList, setIsList] = useState(false);
 
@@ -20,6 +20,7 @@ const NoteList = ({ showEditModeDialog, notes, }) => {
                         key={note.id}
                         showEditModeDialog={showEditModeDialog}
                         note={note}
+                        removeNote={removeNote}
                     />
                 ))}
             </div>

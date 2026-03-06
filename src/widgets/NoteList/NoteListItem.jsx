@@ -1,4 +1,4 @@
-const NoteListItem = ({ note, showEditModeDialog }) => {
+const NoteListItem = ({ note, showEditModeDialog, removeNote }) => {
     return (
         <div className="note__list-item">
             <h2>{note.title}</h2>
@@ -9,9 +9,10 @@ const NoteListItem = ({ note, showEditModeDialog }) => {
                 <button onClick={() => showEditModeDialog(note.id)}>
                     <span>РЕДАКТИРОВАТЬ</span>
                 </button>
-                <button>
+                <button onClick={() => removeNote(note.id)}>
                     <span>УДАЛИТЬ</span>
                 </button>
+
             </div>
         </div>
     );
