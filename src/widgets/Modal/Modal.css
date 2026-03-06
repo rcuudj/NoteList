@@ -1,0 +1,115 @@
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal__dialog {
+  width: 100%;
+  max-width: 312px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: #f3edf7;
+  border-radius: 24px;
+  padding: 24px;
+}
+.modal__dialog h3 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 133%;
+  color: #1c1b1f;
+}
+.modal__dialog label {
+  display: flex;
+  flex-direction: column;
+  background: #e7e0ec;
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid black;
+  margin-top: 16px;
+  padding: 8px 16px;
+}
+.modal__dialog label span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.03em;
+  color: #6750a4;
+}
+.modal__dialog label input {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  color: #49454f;
+}
+.modal__dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  column-gap: 8px;
+  margin-top: 24px;
+}
+.modal__dialog-actions button {
+  padding: 10px 12px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.modal__dialog-actions button span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 100;
+  transition: 0.3s;
+  position: relative;
+}
+.modal__dialog-actions button:nth-of-type(1) span {
+  color: #cf1b1b;
+}
+.modal__dialog-actions button:nth-of-type(2) span {
+  color: #6750a4;
+}
+.modal__dialog-actions button:hover span {
+  color: #fff;
+}
+.modal__dialog-actions button::after {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 120%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s;
+  transform: translateX(100%);
+  transform-origin: left;
+  opacity: 0;
+}
+.modal__dialog-actions button:hover:after {
+  transform: translateX(0%);
+  transform-origin: right;
+  opacity: 1;
+}
+.modal__dialog-actions button:nth-of-type(2):after {
+  background-color: #6750a4;
+}
+.modal__dialog-actions button:nth-of-type(1):after {
+  background-color: #cf1b1b;
+}

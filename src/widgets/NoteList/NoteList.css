@@ -1,0 +1,115 @@
+.note__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px !important;
+}
+
+.note__list.list {
+  grid-template-columns: 1fr;
+}
+
+.note__list-item {
+  padding: 16px;
+  box-shadow:
+    0 1px 3px 1px rgba(0, 0, 0, 0.15),
+    0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  background: #f3edf7;
+  border-radius: 16px;
+}
+
+.note__list-item h2 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #1c1b1f;
+}
+
+.note__list-item span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.02em;
+  color: #cac4d0;
+}
+
+.note__list-item p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.02em;
+  color: #49454f;
+  margin-top: 16px;
+}
+
+.note__list-item-options {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 16px;
+}
+
+.note__list-item-options button {
+  transition: 0.3s;
+  padding: 10px 12px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.note__list-item-options button span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: 0.3s;
+  color: #6750a4;
+  position: relative;
+  z-index: 100;
+}
+.note__list-item-options button::after {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 120%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s;
+  transform: translateX(100%);
+  transform-origin: left;
+  opacity: 0;
+}
+.note__list-item-options button:hover:after {
+  transform: translateX(0%);
+  transform-origin: right;
+  opacity: 1;
+}
+.note__list-item-options button:nth-of-type(1):hover::after {
+  background-color: #6750a4;
+}
+.note__list-item-options button:nth-of-type(2):hover::after {
+  background-color: #cf1b1b;
+}
+.note__list-item-options button:nth-of-type(2) span {
+  color: #cf1b1b;
+}
+.note__list-item-options button:hover span {
+  color: #fff;
+}
+.note__list-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px !important;
+}
+
+.note__list-options h2 {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 127%;
+  color: #323232;
+}
