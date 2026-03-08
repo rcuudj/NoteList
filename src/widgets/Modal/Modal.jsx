@@ -32,9 +32,13 @@ const Modal = ({
             <span>Отмена</span>
           </button>
           {editMode ? (
-            <button onClick={() => editNote()}>Изменить</button>
+            <button onClick={() => editNote()}>
+              <span>Изменить</span>
+            </button>
           ) : (
-            <button onClick={() => addNote()}>Добавить</button>
+            <button onClick={() => addNote()}>
+              <span>Добавить</span>
+            </button>
           )}
         </div>
       </div>

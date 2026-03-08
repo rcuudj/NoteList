@@ -1,9 +1,9 @@
 import NoteListItem from "./NoteListItem";
 import './NoteList.css';
-import NoteListOptions from "./NoteListOptions";
+import NoteListOptions from "./NoteListOption";
 import { useState } from "react";
 
-const NoteList = ({ showEditModeDialog, notes, removeNote}) => {
+const NoteList = ({ showEditModeDialog, notes, removeNote, length }) => {
 
     const [isList, setIsList] = useState(false);
 
@@ -13,7 +13,11 @@ const NoteList = ({ showEditModeDialog, notes, removeNote}) => {
 
     return (
         <>
-            <NoteListOptions handleShowList={handleShowList} isList={isList} />
+            <NoteListOptions
+                handleShowList={handleShowList}
+                isList={isList}
+                length={length}
+            />
             <div className={`note__list container ${isList ? 'list' : ''}`}>
                 {notes.map((note) => (
                     <NoteListItem

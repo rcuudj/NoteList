@@ -36,12 +36,19 @@ const App = () => {
       // date: new Date().toLocaleDateString('ru-RU'), // выводит только месяц число и год
       date: Date(),
     };
-    setNotes([...notes, note]);
+    const allNotes = [...notes, note]
+    setNotes([...allNotes]);
+    saveNotes(allNotes)
     closeModal();
   };
   const loadNote = () => { };
   const removeNote = (id) => {
-    const remove = setNotes(notes.filter(note => note.id !== id)) // отфильтровать по айди, чтобы удалить если айди не совпадает
+    // const remove = setNotes(notes.filter(note => note.id !== id)) // отфильтровать по айди, чтобы удалить если айди не совпадает
+    const index = notes.findIndex(note => note.id == id)
+    notes.splice(index, 1)
+    const allNotes = [...notes]
+    setNotes([...notes])
+    deleteNotes(allNotes)
     console.log(id)
   };
   const editNote = () => {
@@ -59,6 +66,14 @@ const App = () => {
       setEditMode(false);
     }, 500);
   };
+  const saveNotes = (allNotes) => {
+    const notesString = JSON.stringify(allNotes)
+    localStorage.setItem('notes', notesString)
+  }
+  const deleteNotes = (allNotes) => {
+    const notesString = JSON.stringify(allNotes)
+    localStorage.removeItem('notes', notesString)
+  }
   return (
     <>
       <AppBar />
@@ -66,7 +81,9 @@ const App = () => {
         showEditModeDialog={showEditModeDialog}
         removeNote={removeNote}
         notes={notes}
-        editNote={editNote} />
+        editNote={editNote}
+        length={notes.length}
+      />
       <Modal
         showModal={showModal}
         editNote={editNote}
